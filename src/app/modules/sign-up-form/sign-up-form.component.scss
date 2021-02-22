@@ -1,0 +1,34 @@
+@import '../../../assets/styles/_settings';
+
+mat-form-field {
+  width: 100%;
+
+  span {
+    margin-right: $s-size;
+  }
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: normal;
+}
+
+.sign-up-button {
+  justify-content: flex-end;
+  display: flex;
+  margin-top: $m-size;
+}
+
+.sign-up-congrats {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.sign-up-error {
+  mat-card {
+    margin-top: $l-size;
+    background-color: $error-pink;
+  }
+}

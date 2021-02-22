@@ -1,0 +1,25 @@
+@import '../../../assets/styles/settings';
+
+.header {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-color: $lightgrey;
+  margin-bottom: $m-size;
+
+  @media(max-width: $small-screen-breakpoint) {
+    margin-bottom: $l-size;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  &__purple {
+    color: $purple ;
+  }
+
+  &__orange {
+    color: $orange ;
+  }
+}

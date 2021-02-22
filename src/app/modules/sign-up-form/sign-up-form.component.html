@@ -1,0 +1,62 @@
+<ng-container *ngIf="!formWasSubmitted; else congrats" class="form-container">
+  <form [formGroup]="loginForm" (submit)="submitForm()">
+  <div>
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label>{{labels.firstName}}</mat-label>
+      <input matInput formControlName="firstName" required autocomplete="off">
+      <mat-error *ngIf="firstNameControl.touched && firstNameControl.invalid">
+        <span *ngIf="firstNameControl.errors.required">{{labels.requiredField}}</span>
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label>{{labels.lastName}}</mat-label>
+      <input matInput formControlName="lastName" required autocomplete="off">
+      <mat-error *ngIf="lastNameControl.touched && lastNameControl.invalid">
+        <span *ngIf="lastNameControl.errors.required">{{labels.requiredField}}</span>
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label>{{labels.email}}</mat-label>
+      <input matInput formControlName="email" required autocomplete="off">
+      <mat-error *ngIf="emailControl.touched && emailControl.invalid">
+        <span *ngIf="emailControl.errors.required">{{labels.requiredField}}</span>
+        <span *ngIf="emailControl.errors.email">{{labels.invalidEmail}}</span>
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label>{{labels.password}}</mat-label>
+      <input matInput formControlName="password" [type]="hidePassword ? 'password' : 'text'" required autocomplete="off">
+      <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{ hidePassword ? 'visibility' : 'visibility_off' }}</mat-icon>
+      <mat-error *ngIf="passwordControl.touched && passwordControl.invalid">
+        <span *ngIf="passwordControl.errors.required">{{labels.requiredField}}</span>
+        <span *ngIf="passwordControl.errors.pattern">{{labels.invalidPasswordPattern}}</span>
+        <span *ngIf="passwordControl.errors.compromised">{{labels.passwordCompromised}}</span>
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div class="sign-up-button">
+    <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.disabled">
+      <span>{{(loginForm.enabled) ? labels.buttonSignUp : labels.buttonSending }}</span>
+    </button>
+  </div>
+  <ng-container *ngIf="errorMessage">
+    <div class="sign-up-error">
+      <mat-card>{{errorMessage}}</mat-card>
+    </div>
+  </ng-container>
+</form>
+</ng-container>
+<ng-template #congrats>
+  <div class="sign-up-congrats">
+    <h2>{{labels.thankYou}}</h2>
+    <h3>{{labels.checkEmail}}</h3>
+  </div>
+</ng-template>
+
+
