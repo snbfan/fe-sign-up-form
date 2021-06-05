@@ -1,0 +1,6 @@
+{
+  "integrationFolder": "cypress/integration",
+  "baseUrl": "http://localhost:4200",
+  "video": false,
+  "screenshotOnRunFailure": true
+}
