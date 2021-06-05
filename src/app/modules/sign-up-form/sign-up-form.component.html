@@ -3,8 +3,8 @@
   <div>
     <mat-form-field class="form-field" appearance="outline">
       <mat-label>{{labels.firstName}}</mat-label>
-      <input matInput formControlName="firstName" required autocomplete="off">
-      <mat-error *ngIf="firstNameControl.touched && firstNameControl.invalid">
+      <input matInput formControlName="firstName" required autocomplete="off" data-cy="firstName">
+      <mat-error *ngIf="firstNameControl.touched && firstNameControl.invalid" data-cy="errorMessage">
         <span *ngIf="firstNameControl.errors.required">{{labels.requiredField}}</span>
       </mat-error>
     </mat-form-field>
@@ -12,8 +12,8 @@
   <div>
     <mat-form-field class="form-field" appearance="outline">
       <mat-label>{{labels.lastName}}</mat-label>
-      <input matInput formControlName="lastName" required autocomplete="off">
-      <mat-error *ngIf="lastNameControl.touched && lastNameControl.invalid">
+      <input matInput formControlName="lastName" required autocomplete="off" data-cy="lastName">
+      <mat-error *ngIf="lastNameControl.touched && lastNameControl.invalid" data-cy="errorMessage">
         <span *ngIf="lastNameControl.errors.required">{{labels.requiredField}}</span>
       </mat-error>
     </mat-form-field>
@@ -21,8 +21,8 @@
   <div>
     <mat-form-field class="form-field" appearance="outline">
       <mat-label>{{labels.email}}</mat-label>
-      <input matInput formControlName="email" required autocomplete="off">
-      <mat-error *ngIf="emailControl.touched && emailControl.invalid">
+      <input matInput formControlName="email" required autocomplete="off" data-cy="email">
+      <mat-error *ngIf="emailControl.touched && emailControl.invalid" data-cy="errorMessage">
         <span *ngIf="emailControl.errors.required">{{labels.requiredField}}</span>
         <span *ngIf="emailControl.errors.email">{{labels.invalidEmail}}</span>
       </mat-error>
@@ -31,9 +31,9 @@
   <div>
     <mat-form-field class="form-field" appearance="outline">
       <mat-label>{{labels.password}}</mat-label>
-      <input matInput formControlName="password" [type]="hidePassword ? 'password' : 'text'" required autocomplete="off">
+      <input matInput formControlName="password" [type]="hidePassword ? 'password' : 'text'" required autocomplete="off" data-cy="password">
       <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{ hidePassword ? 'visibility' : 'visibility_off' }}</mat-icon>
-      <mat-error *ngIf="passwordControl.touched && passwordControl.invalid">
+      <mat-error *ngIf="passwordControl.touched && passwordControl.invalid" data-cy="errorMessage">
         <span *ngIf="passwordControl.errors.required">{{labels.requiredField}}</span>
         <span *ngIf="passwordControl.errors.pattern">{{labels.invalidPasswordPattern}}</span>
         <span *ngIf="passwordControl.errors.compromised">{{labels.passwordCompromised}}</span>
@@ -41,7 +41,7 @@
     </mat-form-field>
   </div>
   <div class="sign-up-button">
-    <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.disabled">
+    <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.disabled" data-cy="submit">
       <span>{{(loginForm.enabled) ? labels.buttonSignUp : labels.buttonSending }}</span>
     </button>
   </div>
