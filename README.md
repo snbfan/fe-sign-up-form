@@ -21,5 +21,5 @@ Run `ng test` (or `npm run test`) to execute the unit tests (using Karma).
 
 ## Running end-to-end tests
 
-Run `ng e2e` (or `npm run e2e`) to execute the end-to-end tests (using Protractor). <br/>
+Run `npm run e2e` to execute the end-to-end tests (using Cypress). <br/>
 For this to work correctly - application should be shut down first. 
